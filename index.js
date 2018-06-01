@@ -20,11 +20,22 @@ class Highlighter {
     }
   }
 
-  _addInsStyles(node) {
+  _createInsNode() {
+    const node = this._root.ownerDocument.createElement('ins');
     const style = node.style;
     style.textDecoration = 'none';
     style.color = 'var(--lumin-color, currentColor)';
     style.background = 'var(--lumin-background-color, yellow)';
+    return node;
+  }
+
+  _createBufferNode() {
+    const node = this._root.ownerDocument.createElement('ins');
+    const style = node.style;
+    style.textDecoration = 'none';
+    style.color = 'transparent';
+    style.opacity = 0;
+    return node;
   }
 
   _reset() {
@@ -45,12 +56,15 @@ class Highlighter {
       const newNode = node.cloneNode(false);
       newNode.textContent = '';
       const text = node.textContent;
-      const ins = this._root.ownerDocument.createElement('ins');
-      this._addInsStyles(ins);
+      const ins = this._createInsNode();
+      const buffer = this._createBufferNode();
       ins.appendChild(newNode);
+      buffer.textContent = text;
       parent.appendChild(ins);
+      parent.appendChild(buffer);
       this._map.push({
         node: newNode,
+        buffer,
         text,
         current: ''
       });
@@ -113,6 +127,7 @@ class Highlighter {
         d.current = d.text.substring(0, d.current.length + 1);
       }
       d.node.textContent = d.current;
+      d.buffer.textContent = d.text.substring(d.current.length);
       this._nextTick();
     }
   }
