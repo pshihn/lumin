@@ -87,6 +87,7 @@ class Highlighter {
       clearTimeout(this._timer);
       delete this._timer;
     }
+    this._cancelPending();
   }
 
   clear() {
@@ -97,6 +98,7 @@ class Highlighter {
   }
 
   start(duration) {
+    this._cancelPending();
     delete this._prevValue;
     if (!this._overlay) {
       this._reset();
@@ -112,6 +114,13 @@ class Highlighter {
     });
   }
 
+  _cancelPending() {
+    if (this._resolve) {
+      this._resolve(false);
+      this._resolve = null;
+    }
+  }
+
   _nextTick() {
     this._timer = setTimeout(() => this._tick(), this._interval);
   }
@@ -119,7 +128,7 @@ class Highlighter {
   _tick() {
     if (this._cursor >= this._map.length) {
       if (this._resolve) {
-        this._resolve();
+        this._resolve(true);
         this._resolve = null;
       }
       return;
