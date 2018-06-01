@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <title>lumin demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      box-sizing: border-box;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 10px;
+      -webkit-font-smoothing: antialiased;
+      --lumin-background-color: darkblue;
+      --lumin-color: white;
+    }
+
+    .container {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    input {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .controls {
+      padding: 40px 0;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+  </div>
+
+  <div class="controls">
+    <input type="range" min="0" max="100" value="0">
+  </div>
+
+  <script type="module">
+    import lumin from '../index.js';
+
+    const input = document.querySelector('input');
+    const container = document.querySelector('.container');
+    const luminator = lumin(container);
+
+    input.addEventListener('input', () => {
+      luminator.progress = input.value;
+      // luminator.clear();
+      // luminator.start(6000);
+    });
+  </script>
+</body>
+
+</html>

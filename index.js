@@ -63,13 +63,15 @@ class Highlighter {
       buffer.textContent = text;
       parent.appendChild(ins);
       parent.appendChild(buffer);
+      const length = text.length ? Math.max(text.trim().length, 1) : 0;
       this._map.push({
         node: newNode,
         buffer,
         text,
+        length,
         current: ''
       });
-      this._charCount += text.length ? Math.max(text.trim().length, 1) : 0;
+      this._charCount += length;
     } else if (node.nodeType === Node.ELEMENT_NODE) {
       const newNode = node.cloneNode(false);
       parent.appendChild(newNode);
@@ -97,6 +99,7 @@ class Highlighter {
   }
 
   start(duration) {
+    delete this._prevValue;
     if (!this._overlay) {
       this._reset();
     }
@@ -122,7 +125,7 @@ class Highlighter {
       this._cursor++;
       this._tick();
     } else {
-      if (!d.text.trim().length) {
+      if (!d.length) {
         d.current = d.text
       } else {
         d.current = d.text.substring(0, d.current.length + 1);
@@ -130,6 +133,36 @@ class Highlighter {
       d.node.textContent = d.current;
       d.buffer.textContent = d.text.substring(d.current.length);
       this._nextTick();
+    }
+  }
+
+  set progress(value) {
+    value = Math.min(100, Math.max(0, value));
+    const progressCharCount = Math.round(this._charCount * value / 100);
+    const reset = (!this._prevValue) || (this._prevValue > progressCharCount);
+    if (reset) {
+      this.clear();
+    }
+    if (!this._overlay) {
+      this._reset();
+    }
+    let count = 0;
+    for (const d of this._map) {
+      let diff = progressCharCount - count;
+      if (diff <= 0) {
+        break;
+      }
+      if (d.length < diff) {
+        d.current = d.text;
+        d.node.textContent = d.current;
+        d.buffer.textContent = '';
+        count += d.length;
+      } else {
+        d.current = d.text.substring(0, diff);
+        d.node.textContent = d.current;
+        d.buffer.textContent = d.text.substring(d.current.length);
+        count += diff;
+      }
     }
   }
 }
