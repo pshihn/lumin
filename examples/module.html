@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <title>lumin demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      box-sizing: border-box;
+      font-size: 16px;
+      line-height: 2;
+      margin: 0;
+      padding: 10px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: 2em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">The Amazing Party Animal Personality Enhancer!</div>
+    <p>Use this simple device during any social event and you’re virtually guaranteed to develop killer dance moves; become
+      the most entertaining person in the room; and attract 180 percent more attention from potential love interests.</p>
+  </div>
+
+  <div style="padding: 20px 0; text-align: center">
+    <button>START</button>
+  </div>
+
+  <script type="module">
+    import lumin from '../index.js';
+
+    const container = document.querySelector('.container');
+    const luminator = lumin(container);
+
+    document.querySelector('button').addEventListener('click', () => {
+      luminator.clear();
+      luminator.start(5000);
+    });
+  </script>
+</body>
+
+</html>

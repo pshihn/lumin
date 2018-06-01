@@ -1,0 +1,29 @@
+{
+  "name": "lumin",
+  "version": "0.1.0",
+  "description": "Progressive text highlighting",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pshihn/lumin.git"
+  },
+  "keywords": [
+    "highlight",
+    "hilite",
+    "text-highlight"
+  ],
+  "author": "Preet Shihn <preetshihn@gmail.com> (https://twitter.com/preetster)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pshihn/lumin/issues"
+  },
+  "homepage": "https://github.com/pshihn/lumin#readme",
+  "devDependencies": {
+    "rollup": "^0.59.4",
+    "rollup-plugin-babel-minify": "^5.0.0"
+  }
+}
