@@ -1,6 +1,7 @@
 class Highlighter {
   constructor(root) {
     this._root = root;
+    this._resolve = null;
   }
 
   _initializeOverlay() {
@@ -86,6 +87,7 @@ class Highlighter {
       clearTimeout(this._timer);
       delete this._timer;
     }
+    this._cancelPending();
   }
 
   clear() {
@@ -96,6 +98,7 @@ class Highlighter {
   }
 
   start(duration) {
+    this._cancelPending();
     delete this._prevValue;
     if (!this._overlay) {
       this._reset();
@@ -105,7 +108,17 @@ class Highlighter {
     }
     this._interval = duration / this._charCount;
     this._cursor = 0;
-    this._nextTick();
+    return new Promise(resolve => {
+      this._resolve = resolve;
+      this._nextTick();
+    });
+  }
+
+  _cancelPending() {
+    if (this._resolve) {
+      this._resolve(false);
+      this._resolve = null;
+    }
   }
 
   _nextTick() {
@@ -114,6 +127,10 @@ class Highlighter {
 
   _tick() {
     if (this._cursor >= this._map.length) {
+      if (this._resolve) {
+        this._resolve(true);
+        this._resolve = null;
+      }
       return;
     }
     let d = this._map[this._cursor];

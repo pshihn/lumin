@@ -1,8 +1,9 @@
 {
   "name": "lumin",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Progressive text highlighting",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"

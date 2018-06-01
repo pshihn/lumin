@@ -47,7 +47,9 @@
 
     document.querySelector('button').addEventListener('click', () => {
       luminator.clear();
-      luminator.start(6000);
+      luminator.start(6000).then(() => {
+        console.log("done!");
+      });
     });
   </script>
 </body>
