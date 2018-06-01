@@ -16,6 +16,7 @@ class Highlighter {
       style.left = 0;
       style.right = 0;
       style.pointerEvents = 'none';
+      style.userSelect = 'none';
       this._root.appendChild(this._overlay);
     }
   }
