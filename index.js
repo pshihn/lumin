@@ -1,9 +1,6 @@
 class Highlighter {
   constructor(root) {
     this._root = root;
-    this._map = [];
-    this._charCount = 0;
-    this._reset();
   }
 
   _initializeOverlay() {
