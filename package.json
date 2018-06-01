@@ -1,6 +1,6 @@
 {
   "name": "lumin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Progressive text highlighting",
   "main": "index.js",
   "scripts": {
