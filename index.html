@@ -124,6 +124,21 @@
       margin-top: 5px;
     }
 
+    #h1,
+    #h2,
+    #h3 {
+      position: relative;
+    }
+
+    #h3 {
+      --lumin-background-color: #F3E5F5;
+    }
+
+    #h2 {
+      --lumin-background-color: #3F51B5;
+      --lumin-color: white;
+    }
+
     @media (max-width: 600px) {
       body {
         font-size: 19px;
@@ -164,13 +179,13 @@
           </div>
           <div class="controls">
             <label>Color:
-              <input class="inline" id="fg" value="black">
+              <input class="inline" id="fg" value="black" onchange="start1()">
             </label>
             <label>Background:
-              <input class="inline" id="bg" value="yellow">
+              <input class="inline" id="bg" value="yellow" onchange="start1()">
             </label>
             <label>Duration (seconds):
-              <input class="inline" id="duration" value="5" type="number" min="1" max="30">
+              <input class="inline" id="duration" value="5" type="number" min="1" max="30" onchange="start1()">
             </label>
           </div>
         </div>
@@ -187,7 +202,7 @@
           </div>
           <div class="controls">
             <label>Progress (%)</label>
-            <input type="range" id="range" min="0" max="100" value="0">
+            <input type="range" id="range" min="0" max="100" value="0" oninput="update2()" onchange="update2()">
           </div>
         </div>
       </div>
@@ -212,6 +227,13 @@
       </div>
     </section>
     <section>
+      <h3 style="margin-bottom: 0;">Documentation</h3>
+      <p>
+        Visit LuminJS
+        <a target="_blank" href="https://github.com/pshihn/lumin" rel="noopener">Github page</a> for usage and documentation.
+      </p>
+    </section>
+    <section>
       <h3 style="margin-bottom: 0;">License</h3>
       <p>
         <a class="textlink" target="_blank" rel="noopener" href="https://github.com/pshihn/lumin/blob/master/LICENSE">MIT License</a> (c)
@@ -220,6 +242,52 @@
     </section>
   </article>
 
+  <script src="dist/lumin.min.js"></script>
+  <script>
+    const h1 = document.getElementById('h1');
+    const l1 = lumin(h1);
+    const l2 = lumin(document.getElementById('h2'));
+    const l3 = lumin(document.getElementById('h3'));
+
+    function start1() {
+      const color = document.getElementById('fg').value.trim() || '#000';
+      const bg = document.getElementById('bg').value.trim() || 'yellow';
+      let delay = +document.getElementById('duration').value;
+      if (delay < 1) {
+        delay = 1;
+        document.getElementById('duration').value = 1;
+      } else if (delay > 30) {
+        delay = 30;
+        document.getElementById('duration').value = 30;
+      }
+      l1.clear();
+      h1.style.setProperty('--lumin-background-color', bg);
+      h1.style.setProperty('--lumin-color', color);
+      l1.start(delay * 1000).then((finished) => {
+        if (finished) {
+          setTimeout(() => start1(), 500);
+        }
+      });
+    }
+
+    function start3() {
+      l3.clear();
+      setTimeout(() => {
+        l3.start(5000).then(() => {
+          setTimeout(() => start3(), 1000);
+        });
+      }, 1000);
+    }
+
+    function update2() {
+      const value = document.getElementById('range').value;
+      l2.progress = value;
+      console.log(value);
+    }
+
+    start1();
+    start3();
+  </script>
 </body>
 
 </html>
