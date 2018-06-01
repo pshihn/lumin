@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <title>LuminJS</title>
+  <meta name="description" content="Progressively highlight any text on a page.">
+  <link rel="icon" href="images/fav.png" type="image/png">
+  <link rel="canonical" href="https://lumin.rocks/">
+
+  <meta property="og:title" content="LuminJS">
+  <meta property="og:description" content="Progressively highlight any text on a page.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lumin.rocks/">
+  <meta property="og:image" content="https://lumin.rocks/images/logo_400.png">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@YourGuild">
+  <meta name="twitter:title" content="LuminJS">
+  <meta name="twitter:description" content="Progressively highlight any text on a page.">
+  <meta name="twitter:image" content="https://lumin.rocks/images/logo_400.png">
+  <meta name="twitter:image:width" content="400">
+  <meta name="twitter:image:height" content="400">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica', sans-serif;
+      font-size: 20px;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    article {
+      padding: 15px 20px 40px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+
+    h3 {
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+
+    a,
+    a:hover,
+    a:visited {
+      color: inherit;
+      text-decoration: none;
+      outline: none;
+    }
+
+    a.textlink {
+      box-shadow: 0 2px #000;
+    }
+
+    .card {
+      font-size: 16px;
+      padding: 20px;
+      box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.6);
+    }
+
+    .big {
+      font-size: 1.5em;
+    }
+
+    section {
+      margin-top: 40px;
+    }
+
+    button {
+      background: none;
+      font-family: inherit;
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: 300;
+      padding: 10px 16px;
+      border: 2px solid;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 19px;
+        letter-spacing: 0.05em;
+      }
+      article {
+        padding: 5px 16px 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <header>
+      <h1>LuminJS</h1>
+      <div class="subtitle">
+        <p>A tiny Javascript library that allows you to progressively highlight any text on a web page.</p>
+        <p>
+          Great for when you want your users to pay attention to an important piece of text; or maybe show progress of your upload
+          by highlighting a block of text.
+        </p>
+        <p>
+          <a target="_blank" href="https://github.com/pshihn/lumin" rel="noopener">
+            <button>View on Github</button>
+          </a>
+        </p>
+      </div>
+    </header>
+    <section>
+      <p>You can configure the speed, and styling of the highlight animation</p>
+      <div class="cardContainer">
+        <div class="card">
+          <div id="h1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <p>Or control how much is hightlighted - for example, to show progress</p>
+      <div class="cardContainer">
+        <div class="card">
+          <div id="h1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p>
+        Highlighting works on a complex set of html nodes. Just pass the root node, and it will highlight text in all child nodes.
+      </p>
+      <div class="cardContainer">
+        <div class="card">
+          <div id="h1">
+            <div class="big">The Amazing Party Animal Personality Enhancer!</div>
+            <p>Use this simple device during any social event and you’re virtually guaranteed to:</p>
+            <ul>
+              <li>develop killer dance moves</li>
+              <li>become the most entertaining person in the room</li>
+              <li>and attract 180 percent more attention from potential love interests</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section style="margin-top: 40px;">
+      <h3 style="margin-bottom: 0;">License</h3>
+      <p>
+        <a class="textlink" target="_blank" rel="noopener" href="https://github.com/pshihn/lumin/blob/master/LICENSE">MIT License</a> (c)
+        <a class="textlink" target="_blank" rel="noopener" href="https://twitter.com/preetster">Preet Shihn</a>
+      </p>
+    </section>
+  </article>
+
+</body>
+
+</html>
