@@ -32,6 +32,7 @@
       -webkit-font-smoothing: antialiased;
       line-height: 1.5;
       font-weight: 300;
+      background: #fcfcfc;
     }
 
     article {
@@ -68,6 +69,7 @@
       font-size: 16px;
       padding: 20px;
       box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.6);
+      background: white;
     }
 
     .big {
@@ -87,6 +89,39 @@
       padding: 10px 16px;
       border: 2px solid;
       cursor: pointer;
+    }
+
+    label {
+      white-space: nowrap;
+      display: inline-block;
+      margin: 10px 5px 10px 0;
+    }
+
+    .controls {
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 1px solid #e5e5e5;
+      background-color: white;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: bold;
+      color: #808080;
+    }
+
+    input.inline {
+      font-family: inherit;
+      padding: 3px 5px;
+      width: 70px;
+      margin: 0 5px;
+      font-size: 14px;
+    }
+
+    #range {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 5px;
     }
 
     @media (max-width: 600px) {
@@ -119,39 +154,52 @@
       </div>
     </header>
     <section>
-      <p>You can configure the speed, and styling of the highlight animation</p>
+      <p>🎨 You can configure the speed, and styling of the highlight animation</p>
       <div class="cardContainer">
         <div class="card">
           <div id="h1">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </div>
+          <div class="controls">
+            <label>Color:
+              <input class="inline" id="fg" value="black">
+            </label>
+            <label>Background:
+              <input class="inline" id="bg" value="yellow">
+            </label>
+            <label>Duration (seconds):
+              <input class="inline" id="duration" value="5" type="number" min="1" max="30">
+            </label>
           </div>
         </div>
       </div>
     </section>
     <section>
-      <p>Or control how much is hightlighted - for example, to show progress</p>
+      <p>🌞 Or control how much is hightlighted - for example, to show progress</p>
       <div class="cardContainer">
         <div class="card">
-          <div id="h1">
+          <div id="h2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </div>
+          <div class="controls">
+            <label>Progress (%)</label>
+            <input type="range" id="range" min="0" max="100" value="0">
           </div>
         </div>
       </div>
     </section>
-
     <section>
       <p>
-        Highlighting works on a complex set of html nodes. Just pass the root node, and it will highlight text in all child nodes.
+        👏🏽 Highlighting works on a complex set of html nodes. Just pass the root node, and it will highlight text in all child
+        nodes.
       </p>
       <div class="cardContainer">
         <div class="card">
-          <div id="h1">
+          <div id="h3">
             <div class="big">The Amazing Party Animal Personality Enhancer!</div>
             <p>Use this simple device during any social event and you’re virtually guaranteed to:</p>
             <ul>
@@ -163,9 +211,7 @@
         </div>
       </div>
     </section>
-
-
-    <section style="margin-top: 40px;">
+    <section>
       <h3 style="margin-bottom: 0;">License</h3>
       <p>
         <a class="textlink" target="_blank" rel="noopener" href="https://github.com/pshihn/lumin/blob/master/LICENSE">MIT License</a> (c)
