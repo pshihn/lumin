@@ -61,7 +61,10 @@ class Highlighter {
       buffer.textContent = text;
       parent.appendChild(ins);
       parent.appendChild(buffer);
-      const length = text.length ? Math.max(text.trim().length, 1) : 0;
+      let length = text.length;
+      if (length && (!text.trim().length)) {
+        length = 1;
+      }
       this._map.push({
         node: newNode,
         buffer,
@@ -154,6 +157,7 @@ class Highlighter {
     value = Math.min(100, Math.max(0, value));
     const progressCharCount = Math.round(this._charCount * value / 100);
     const reset = (!this._prevValue) || (this._prevValue > progressCharCount);
+    this._prevValue = progressCharCount;
     if (reset) {
       this.clear();
     }
