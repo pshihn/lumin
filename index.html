@@ -37,7 +37,7 @@
 
     article {
       padding: 15px 20px 40px;
-      max-width: 700px;
+      max-width: 690px;
       margin: 0 auto;
     }
 
@@ -156,10 +156,10 @@
     <header>
       <h1>LuminJS</h1>
       <div class="subtitle">
-        <p>A tiny Javascript library that allows you to progressively highlight any text on a web page.</p>
+        <p>A tiny Javascript library that lets you progressively highlight any text on a web page.</p>
         <p>
-          Great for when you want your users to pay attention to an important piece of text; or maybe show progress of your upload
-          by highlighting a block of text.
+          Great for when you want your users to pay attention to an important piece of text. It can also be used to show progress of
+          a task (upload files or delte records) − drive user's attention to read something while tasks are being completed.
         </p>
         <p>
           <a target="_blank" href="https://github.com/pshihn/lumin" rel="noopener">
@@ -230,7 +230,7 @@
       <h3 style="margin-bottom: 0;">Documentation</h3>
       <p>
         Visit LuminJS
-        <a target="_blank" href="https://github.com/pshihn/lumin" rel="noopener">Github page</a> for usage and documentation.
+        <a class="textlink" target="_blank" href="https://github.com/pshihn/lumin" rel="noopener">Github page</a> for usage and documentation.
       </p>
     </section>
     <section>
@@ -282,7 +282,6 @@
     function update2() {
       const value = document.getElementById('range').value;
       l2.progress = value;
-      console.log(value);
     }
     start1();
     start3();
