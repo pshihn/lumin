@@ -1,7 +1,7 @@
 # LuminJS
 A JavaScript library to progressively highlight any text on a page.
 
-Great for when you want users to pay attention to some important text. It can also be used to show progress of a task − Read something while tasks are being completed.
+Great for when you want users to pay attention to some important text.<br> It can also be used to show progress of a task − Read something while tasks are being completed.
 
 Related buzz words: _Tiny (~1kB gzipped)_, _No-dependency_
 
