@@ -20,7 +20,7 @@ npm install --save lumin
 
 ## Usage
 
-Instantiate **lumin** with a node (the text under which will be highlighted). The call *start* to start highlighting.
+Instantiate **lumin** with a node. All text under that node, including child nodes, will be highlighted. Then call *start* to start highlighting.
 
 ```javascript
 const luminator = lumin(domNode);
@@ -32,6 +32,8 @@ Or you can manually control the progress
 // Set progress to 50%
 luminator.progress = 50;
 ```
+
+**Note**: _The node being instantiated with has to be a positioned node. i.e. position is not static for this to work. In most cases, **position:relative** will do the trick._
 
 ## Full API
 
