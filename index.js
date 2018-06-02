@@ -154,15 +154,15 @@ class Highlighter {
   }
 
   set progress(value) {
+    if (!this._overlay) {
+      this._reset();
+    }
     value = Math.min(100, Math.max(0, value));
     const progressCharCount = Math.round(this._charCount * value / 100);
     const reset = (!this._prevValue) || (this._prevValue > progressCharCount);
     this._prevValue = progressCharCount;
     if (reset) {
       this.clear();
-    }
-    if (!this._overlay) {
-      this._reset();
     }
     let count = 0;
     for (const d of this._map) {
