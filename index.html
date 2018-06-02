@@ -202,7 +202,7 @@
           </div>
           <div class="controls">
             <label>Progress (%)</label>
-            <input type="range" id="range" min="0" max="100" value="0" oninput="update2()" onchange="update2()">
+            <input type="range" id="range" min="0" max="100" value="20" oninput="update2()" onchange="update2()">
           </div>
         </div>
       </div>
@@ -284,9 +284,9 @@
       l2.progress = value;
       console.log(value);
     }
-
     start1();
     start3();
+    setTimeout(() => update2(), 5000);
   </script>
 </body>
 
