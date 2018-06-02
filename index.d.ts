@@ -1,5 +1,5 @@
 export declare interface Highlighter {
-  readonly progress: number;
+  progress: number;
   start(duration: number): Promise<boolean>;
   stop();
   clear();
