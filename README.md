@@ -47,7 +47,7 @@ Start the highlight.
 
 _duration_ is the approximate time in milliseconds the highlighting should take.
 
-**returns** a promise which is resolved when the highlight ends. The resolved value is __true__ if the animation ends without interruption; __false__ if _stop_ was called.
+**returns** a Promise which is resolved when the highlight ends. The resolved value is __true__ if the animation ends without interruption; __false__ if _stop_ was called.
 
 ### stop()
 
@@ -59,7 +59,7 @@ Clears the highlighting.
 
 ## Examples
 
-See it live in action on [lumin.rocks](https://lumin.rocks/) or some code in the [Examples folder](https://github.com/pshihn/lumin/tree/master/examples).
+See it live in action on [lumin.rocks](https://lumin.rocks/) or view sample code in the [Examples folder](https://github.com/pshihn/lumin/tree/master/examples).
 
 
 ## License
