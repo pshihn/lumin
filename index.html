@@ -128,7 +128,8 @@
 
     #h1,
     #h2,
-    #h3 {
+    #h3,
+    #h4 {
       position: relative;
     }
 
@@ -139,6 +140,12 @@
     #h2 {
       --lumin-background-color: #3F51B5;
       --lumin-color: white;
+    }
+
+    #h4 {
+      --lumin-background-color: transparent;
+      --lumin-color: #004;
+      color: transparent;
     }
 
     @media (max-width: 600px) {
@@ -234,6 +241,18 @@
       </div>
     </section>
     <section>
+      <p>✍️ By configuring the colors, you could create a
+        <i>typing</i> effect.</p>
+      <div class="cardContainer">
+        <div class="card">
+          <div id="h4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
       <h3 style="margin-bottom: 0;">Documentation</h3>
       <p>
         Visit LuminJS
@@ -255,6 +274,7 @@
     const l1 = lumin(h1);
     const l2 = lumin(document.getElementById('h2'));
     const l3 = lumin(document.getElementById('h3'));
+    const l4 = lumin(document.getElementById('h4'));
 
     function start1() {
       const color = document.getElementById('fg').value.trim() || '#000';
@@ -286,12 +306,22 @@
       }, 1000);
     }
 
+    function start4() {
+      l4.clear();
+      setTimeout(() => {
+        l4.start(8000).then(() => {
+          setTimeout(() => start4(), 500);
+        });
+      }, 500);
+    }
+
     function update2() {
       const value = document.getElementById('range').value;
       l2.progress = value;
     }
     start1();
     start3();
+    start4();
     update2();
   </script>
 </body>
