@@ -9,6 +9,8 @@ Visit [lumin.rocks](https://lumin.rocks/) to see it in action.
 
 ![Demo gif](https://lumin.rocks/images/highlight.gif)
 
+**Note**: This does NOT modify the user selection. 
+
 ## Install
 
 Download the latest from [dist folder](https://github.com/pshihn/lumin/tree/master/dist)
