@@ -1,7 +1,8 @@
 class Highlighter {
-  constructor(root) {
+  constructor(root,highlightColor) {
     this._root = root;
     this._resolve = null;
+    this._highlightColor=highlightColor;
   }
 
   _initializeOverlay() {
@@ -24,7 +25,7 @@ class Highlighter {
     const style = node.style;
     style.textDecoration = 'none';
     style.color = 'var(--lumin-color, currentColor)';
-    style.background = 'var(--lumin-background-color, yellow)';
+    style.background = `var(--lumin-background-color, ${this._highlightColor})`;
     return node;
   }
 
